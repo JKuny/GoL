@@ -26,6 +26,9 @@ class IdeaGenerator(object):
 			
 		self.results = ideaArray
 
+	"""
+	Creates a basic sentence with random nouns and adjectives.
+	"""
 	def generate_sentence(self):
 		sentence = "An image of a "
 		sentence = sentence + self.retrieve_file_info("nouns")
