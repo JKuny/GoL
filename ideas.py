@@ -9,38 +9,51 @@ import random
 
 class IdeaGenerator(object):
 	
-	def __init__(self, numberOfIdeas):
-		os.chdir(r'D:\Downloads') # Change directory to where file is
+	""" Main constructor. """
+	def __init__(self, number_of_ideas):
+		os.chdir(r'.') # Change directory to where file is
 		self.results = []
-		self.numberOfIdeas = numberOfIdeas
+		self.number_of_ideas = number_of_ideas
 
+	"""
+	Creates populate's the generator's result array with
+	the object's specied number of ideas.
+	"""
 	def generate_ideas(self):
 		ideaArray = []
-		for x in range(0, self.numberOfIdeas):
-			ideaArray.append(self.new_idea())
+		for x in range(0, self.number_of_ideas):
+			ideaArray.append(self.generate_sentence())
 			
 		self.results = ideaArray
 
-	def new_idea(self):
-		return "ideas"
-	
-	def is_file_found(self):
-		file = open("nouns.txt", 'r')
+	def generate_sentence(self):
+		sentence = "An image of a "
+		sentence = sentence + self.retrieve_file_info("nouns")
+		sentence = sentence + " that is "
+		sentence = sentence + self.retrieve_file_info("adjectives")
+		sentence = sentence + "."
+		return sentence
+
+	""" Checks to see if the specified file exists. """
+	def is_file_found(self, file_name):
+		file = open(file_name + ".txt", 'r')
 		file.close()
 		return file
 		
-	def retrieve_noun(self):
-		file = open("nouns.txt", 'r') # Open file
-		
-		# Loop through file
+	""" Return a random value from the specified file. """
+	def retrieve_file_info(self, file_name):
+		file = open(file_name + ".txt", 'r')
+
 		array = []
 		for line in file:
-			array.append(line)
-			
-		file.close() # Close file
-		return array[random.randint(0, len(array)]
+			array.append(line.rstrip())
+
+		file.close()
+
+		index = random.randint(0, len(array) - 1)
+		return array[index]
 
 if __name__ == '__main__':
-	x = IdeaGenerator(5)
+	x = IdeaGenerator(3)
 	x.generate_ideas()
-	print(x.retrieve_noun())
+	print(x.results)
