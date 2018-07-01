@@ -9,7 +9,9 @@ import random
 
 class IdeaGenerator(object):
 	
-	""" Main constructor. """
+	"""
+	Main constructor.
+	"""
 	def __init__(self, number_of_ideas):
 		os.chdir(r'.') # Change directory to where file is
 		self.results = []
@@ -37,7 +39,9 @@ class IdeaGenerator(object):
 		sentence = sentence + "."
 		return sentence
 
-	""" Checks to see if the specified file exists. """
+	"""
+	Checks to see if the specified file exists.
+	"""
 	def is_file_found(self, file_name):
 		file = open(file_name + ".txt", 'r')
 		file.close()
