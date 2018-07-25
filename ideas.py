@@ -13,7 +13,7 @@ class IdeaGenerator(object):
 	Main constructor.
 	"""
 	def __init__(self, number_of_ideas):
-		os.chdir(r'.') # Change directory to where file is
+		os.chdir(r'.') # Change directory to where the file is
 		self.results = []
 		self.number_of_ideas = number_of_ideas
 
@@ -61,6 +61,6 @@ class IdeaGenerator(object):
 		return array[index]
 
 if __name__ == '__main__':
-	x = IdeaGenerator(3)
+	x = IdeaGenerator(1)
 	x.generate_ideas()
-	print(x.results)
+	print(x.results[0])

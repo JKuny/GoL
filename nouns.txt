@@ -1,3 +1,11 @@
 house
 skyscraper
 park
+cat
+woman
+man
+sunset
+forest
+mountain
+plain
+town

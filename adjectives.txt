@@ -1,3 +1,8 @@
 rainy
-warm
+sunny
 colorful
+somber
+lively
+dreary
+snowy
+stormy
