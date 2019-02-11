@@ -30,9 +30,8 @@ class IdeaGenerator(object):
     def generate_sentence(self):
         """ Creates a basic sentence with random nouns and adjectives. """
         sentence = "An image of a "
+        sentence = sentence + IdeaGenerator.retrieve_file_info("adjectives") + " "
         sentence = sentence + IdeaGenerator.retrieve_file_info("nouns")
-        sentence = sentence + " that is "
-        sentence = sentence + IdeaGenerator.retrieve_file_info("adjectives")
         sentence = sentence + "."
         return sentence
 
@@ -59,6 +58,7 @@ class IdeaGenerator(object):
 
 
 if __name__ == '__main__':
-    x = IdeaGenerator(1)
+    x = IdeaGenerator(5)
     x.generate_ideas()
-    print(x.results[0])
+    for each in x.results:
+        print(each)
